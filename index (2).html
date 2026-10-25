@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#10100f">
+<meta name="description" content="Innova Market: fragancias, tecnología y accesorios seleccionados.">
+<title>Innova Market | Fragancias & accesorios</title>
+<style>
+:root{--bg:#10100f;--panel:#191918;--gold:#d6b779;--gold2:#f0d9a4;--text:#f7f3eb;--muted:#b9b4aa;--line:#35342f;--green:#25d366}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}button,input{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}.wrap{width:min(1180px,92%);margin:auto}
+.announcement{background:var(--gold);color:#171510;text-align:center;padding:8px 12px;font-size:.84rem;font-weight:800}
+header{position:sticky;top:0;z-index:10;background:#10100fee;border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{font-weight:900;letter-spacing:.12em}.brand span{color:var(--gold)}.navlinks{display:flex;gap:20px;color:var(--muted);font-size:.92rem}.navlinks a:hover{color:var(--gold2)}.cart-button,.primary{border:0;border-radius:999px;background:var(--gold);color:#171510;font-weight:850;padding:11px 17px}
+.hero{padding:70px 0 55px;background:radial-gradient(ellipse at 75% 20%,#4d3d233d,transparent 48%),linear-gradient(135deg,#171715,#10100f 68%)}.eyebrow{color:var(--gold);font-weight:800;text-transform:uppercase;letter-spacing:.16em;font-size:.76rem}.hero h1{font-size:clamp(2.5rem,6vw,5rem);line-height:1.03;max-width:780px;margin:15px 0}.hero h1 em{font-style:normal;color:var(--gold)}.hero p{max-width:600px;color:var(--muted);font-size:1.08rem}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}.secondary{border:1px solid #71664f;border-radius:999px;padding:10px 17px}.trust{display:flex;gap:18px;flex-wrap:wrap;margin-top:30px;color:var(--muted);font-size:.9rem}.trust span:before{content:"✓";color:var(--gold);margin-right:7px}
+section{padding:46px 0}.section-head{margin-bottom:20px}.section-head h2{font-size:clamp(1.7rem,3vw,2.3rem);margin:5px 0}.section-head p{margin:0;color:var(--muted)}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0 24px}.search{flex:1;min-width:220px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 15px;color:var(--text);outline:none}.search:focus{border-color:var(--gold)}.filters{display:flex;gap:8px;flex-wrap:wrap}.filter{border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:999px;padding:9px 13px}.filter.active,.filter:hover{background:var(--gold);color:#171510;border-color:var(--gold);font-weight:800}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.product{border:1px solid var(--line);background:var(--panel);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;min-width:0;transition:transform .2s,border-color .2s}.product:hover{transform:translateY(-3px);border-color:#82714e}.photo{height:215px;background:linear-gradient(145deg,#292822,#171715);display:grid;place-items:center;padding:14px}.photo img{width:100%;height:100%;object-fit:contain}.no-image{display:none;color:#aaa18f;text-align:center;font-size:.8rem}.product-body{padding:14px;display:flex;flex-direction:column;flex:1}.category{color:var(--gold);text-transform:uppercase;letter-spacing:.07em;font-size:.68rem;font-weight:800}.product h3{font-size:1rem;line-height:1.35;margin:7px 0}.description{color:var(--muted);font-size:.85rem;margin:0 0 14px}.product-bottom{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:8px}.price{font-weight:850;white-space:nowrap}.add{border:1px solid #756444;background:transparent;color:var(--gold2);border-radius:9px;padding:8px 10px;font-weight:750}.add:hover{background:var(--gold);color:#171510}.empty{padding:30px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:14px;grid-column:1/-1}
+.info-band{background:#191815;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.info-item strong{display:block;color:var(--gold2);margin-bottom:5px}.info-item p{margin:0;color:var(--muted);font-size:.92rem}footer{padding:32px 0;color:var(--muted);font-size:.88rem}.footer-row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.wa-float{position:fixed;bottom:18px;right:18px;z-index:9;background:var(--green);color:#062b12;font-weight:850;border-radius:999px;padding:12px 17px;box-shadow:0 8px 28px #0008}
+.overlay{position:fixed;inset:0;background:#0009;z-index:20;opacity:0;pointer-events:none;transition:opacity .2s}.overlay.open{opacity:1;pointer-events:auto}.drawer{position:fixed;z-index:21;right:0;top:0;height:100dvh;width:min(420px,100%);background:var(--panel);border-left:1px solid var(--line);padding:22px;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .25s}.drawer.open{transform:translateX(0)}.drawer-head{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:12px}.close{background:transparent;border:1px solid var(--line);border-radius:9px;color:var(--text);padding:7px 11px}.cart-items{overflow:auto;flex:1;padding:12px 0}.cart-line{display:grid;grid-template-columns:1fr auto;gap:8px;padding:12px 0;border-bottom:1px solid var(--line)}.cart-line small{display:block;color:var(--muted)}.qty{display:flex;align-items:center;gap:8px}.qty button{background:#292822;border:1px solid var(--line);color:var(--text);border-radius:7px;width:28px;height:28px}.cart-total{border-top:1px solid var(--line);padding-top:16px}.total-row{display:flex;justify-content:space-between;font-weight:850;font-size:1.1rem;margin-bottom:14px}.checkout{width:100%;background:var(--green);color:#062b12;border:0;border-radius:11px;padding:13px;font-weight:900}.note{color:var(--muted);font-size:.78rem;margin:10px 0 0}
+@media(max-width:900px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}@media(max-width:650px){.nav{min-height:64px}.navlinks{display:none}.hero{padding:48px 0 40px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.photo{height:165px}.product-body{padding:11px}.product h3{font-size:.9rem}.product-bottom{align-items:flex-start;flex-direction:column}.add{width:100%}.info-grid{grid-template-columns:1fr;gap:14px}.trust{gap:10px}.wa-float{bottom:12px;right:12px}}@media(max-width:360px){.grid{grid-template-columns:1fr}.photo{height:225px}}
+</style>
+</head>
+<body>
+<div class="announcement">INNOVA MARKET · FRAGANCIAS Y ACCESORIOS SELECCIONADOS</div>
+<header><div class="wrap nav"><a class="brand" href="#">INNOVA <span>MARKET</span></a><nav class="navlinks" aria-label="Navegación"><a href="#catalogo">Catálogo</a><a href="#comprar">Cómo comprar</a><a href="#contacto">Contacto</a></nav><button class="cart-button" id="open-cart">Carrito (<span id="cart-count">0</span>)</button></div></header>
+<main>
+<section class="hero"><div class="wrap"><div class="eyebrow">Tu próximo favorito está acá</div><h1>Detalles que marcan <em>la diferencia.</em></h1><p>Explorá fragancias, tecnología y accesorios elegidos para acompañarte todos los días. Consultá disponibilidad y hacé tu pedido de forma simple por WhatsApp.</p><div class="hero-actions"><a class="primary" href="#catalogo">Ver catálogo</a><a class="secondary" href="#comprar">Cómo comprar</a></div><div class="trust"><span>Atención personalizada</span><span>Pedidos por WhatsApp</span><span>Consultá stock</span></div></div></section>
+<section id="catalogo"><div class="wrap"><div class="section-head"><div class="eyebrow">Selección Innova</div><h2>Encontrá lo que buscás</h2><p>Precios en pesos argentinos. Consultá disponibilidad antes de confirmar.</p></div><div class="toolbar"><input class="search" id="search" type="search" placeholder="Buscar productos..." aria-label="Buscar productos"><div class="filters" id="filters"></div></div><div class="grid" id="products" aria-live="polite"></div></div></section>
+<section class="info-band" id="comprar"><div class="wrap info-grid"><div class="info-item"><strong>01 · Elegí tus productos</strong><p>Sumalos al carrito y revisá las cantidades.</p></div><div class="info-item"><strong>02 · Mandá tu pedido</strong><p>El carrito prepara el mensaje para WhatsApp.</p></div><div class="info-item"><strong>03 · Confirmá disponibilidad</strong><p>Coordiná stock, entrega y forma de pago.</p></div></div></section>
+</main>
+<footer id="contacto"><div class="wrap footer-row"><div><a class="brand" href="#">INNOVA <span>MARKET</span></a><p>Fragancias, tecnología y accesorios.</p></div><div>¿Tenés dudas? <a id="footer-wa" href="#" target="_blank" rel="noopener">Contactanos por WhatsApp</a><p>© <span id="year"></span> Innova Market.</p></div></div></footer>
+<a class="wa-float" id="float-wa" href="#" target="_blank" rel="noopener">WhatsApp</a>
+<div class="overlay" id="overlay"></div><aside class="drawer" id="drawer" aria-label="Carrito de compras" aria-modal="true" role="dialog"><div class="drawer-head"><h2>Tu carrito</h2><button class="close" id="close-cart">Cerrar ✕</button></div><div class="cart-items" id="cart-items"></div><div class="cart-total"><div class="total-row"><span>Total estimado</span><span id="total">$0</span></div><button class="checkout" id="checkout">Continuar por WhatsApp</button><p class="note">Los productos por encargo se consultan por WhatsApp y no se suman al total.</p></div></aside>
+<script>
+/* CONFIGURACIÓN RÁPIDA: editá nombres, precios, categorías e imágenes acá.
+   Las imágenes deben estar en la misma carpeta que index.html.
+   WhatsApp: código de país + área + número, solo dígitos. Verificá el número antes de publicar. */
+const CONFIG={
+ whatsapp:"5493364341230",
+ currency:"ARS",
+ products:[
+ {id:"arab-1",name:"Ice Cream Perfume (Choco Overdose)",category:"Perfumes árabes en tubito",price:3500,image:"imagen1.png"},
+ {id:"arab-2",name:"Explore",category:"Perfumes árabes en tubito",price:3500,image:"imagen2.png"},
+ {id:"arab-3",name:"Qaid Al Fursan",category:"Perfumes árabes en tubito",price:3500,image:"imagen3.png"},
+ {id:"arab-4",name:"717 VIP Wild Party NYC",category:"Perfumes árabes en tubito",price:3500,image:"imagen4.png"},
+ {id:"arab-5",name:"Asad",category:"Perfumes árabes en tubito",price:3500,image:"imagen5.png"},
+ {id:"arab-6",name:"Areej Al Oud",category:"Perfumes árabes en tubito",price:3500,image:"imagen6.png"},
+ {id:"arab-7",name:"Odyssey Tyrant Special Edition",category:"Perfumes árabes en tubito",price:3500,image:"imagen7.png"},
+ {id:"arab-8",name:"Elixir Oud Mood",category:"Perfumes árabes en tubito",price:3500,image:"imagen8.png"},
+ {id:"arab-9",name:"Ame Ame",category:"Perfumes árabes en tubito",price:3500,image:"imagen9.png"},
+ {id:"arab-10",name:"Ramz Lattafa",category:"Perfumes árabes en tubito",price:3500,image:"imagen10.png"},
+ {id:"mini-1",name:"Azzaro Wanted By Night · Mini 30 ml",category:"Perfumes mini 30 ml",price:15000,image:"azzado.jpg"},
+ {id:"mini-2",name:"Jean Paul Gaultier Le Beau · Mini 30 ml",category:"Perfumes mini 30 ml",price:15000,image:"jeanpaul1.jpg"},
+ {id:"mini-3",name:"Paco Rabanne Invictus Clásico · Mini 30 ml",category:"Perfumes mini 30 ml",price:15000,image:"paco1.jpg"},
+ {id:"mini-4",name:"Al Haramain Ruby · Mini 30 ml",category:"Perfumes mini 30 ml",price:15000,image:"haramain1.jpg"},
+ {id:"mini-5",name:"Erba Pura Mystical Xerjoff · Mini 30 ml",category:"Perfumes mini 30 ml",price:15000,image:"erbapura1.jpg"},
+ {id:"mini-6",name:"Hawas Fire · Mini 30 ml",category:"Perfumes mini 30 ml",price:15000,image:"hawas1.jpg"},
+ {id:"mini-7",name:"Khamrah Blue · Mini 30 ml",category:"Perfumes mini 30 ml",price:15000,image:"khamrahblue1.jpg"},
+ {id:"mini-8",name:"1 Million Elixir · Extracto 30 ml",category:"Perfumes mini 30 ml",price:15000,image:"1millonelixir.jpg"},
+ {id:"vs-1",name:"Victoria’s Secret Bare Vanilla",category:"Victoria’s Secret",price:18000,image:"berevainilla1.jpg"},
+ {id:"vs-2",name:"Victoria’s Secret Pure Seduction In Bloom",category:"Victoria’s Secret",price:18000,image:"pureseduction1.jpg"},
+ {id:"audio-1",name:"Auriculares A6S Bluetooth 5.3",category:"Auriculares",price:12500,image:"auricularesa6s.webp"},
+ {id:"audio-2",name:"JBL Wave Beam 3 · Blanco",category:"Auriculares",price:36000,image:"jbl1.jpg"},
+ {id:"audio-3",name:"JBL Wave Beam 3 · Negro",category:"Auriculares",price:36000,image:"jbl2.jpg"},
+ {id:"audio-4",name:"AirPods Pro 3 AAA",category:"Auriculares",price:38000,image:"airpods1.jpg"},
+ {id:"mate-1",name:"Mate listo / termo 750 ml · Negro",category:"Mates y botellas",price:26000,image:"matelisto1.jpg"},
+ {id:"mate-2",name:"Mate listo / termo 750 ml · Violeta",category:"Mates y botellas",price:26000,image:"matelisto2.jpg"},
+ {id:"mate-3",name:"Mate listo / termo 750 ml · Verde",category:"Mates y botellas",price:26000,image:"matelisto3.jpg"},
+ {id:"mate-4",name:"Mate listo / termo 750 ml · Blanco",category:"Mates y botellas",price:26000,image:"matelisto4.jpg"},
+ {id:"mate-5",name:"Mate listo / termo 750 ml · Rosa",category:"Mates y botellas",price:26000,image:"matelisto5.jpg"},
+ {id:"botella-1",name:"Botella doble función 500 ml · Rosa",category:"Mates y botellas",price:26000,image:"doblefuncion1.jpg"},
+ {id:"botella-2",name:"Botella doble función 750 ml · Natural",category:"Mates y botellas",price:26000,image:"doblefuncion2.jpg"},
+ {id:"botella-3",name:"Botella doble función 750 ml · Blanco",category:"Mates y botellas",price:26000,image:"doblefuncion4.jpg"},
+ {id:"mate-6",name:"Mate listo 500 ml · Negro",category:"Mates y botellas",price:20000,image:"matelisto6.jpg"},
+ {id:"mate-7",name:"Mate listo 500 ml · Blanco",category:"Mates y botellas",price:20000,image:"matelisto7.jpg"},
+ {id:"funda-1",name:"Fundas para iPhone (por encargo)",category:"Fundas por encargo",price:null,image:"fundaiphone1.jpg",consult:true,description:"Consultá modelos y precio por WhatsApp."}
+]};
+const money=n=>new Intl.NumberFormat("es-AR",{style:"currency",currency:CONFIG.currency,maximumFractionDigits:0}).format(n);
+const state={category:"Todos",search:"",cart:{}};
+const productsEl=document.getElementById("products"),filtersEl=document.getElementById("filters");
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+function waLink(msg){return "https://wa.me/"+CONFIG.whatsapp+"?text="+encodeURIComponent(msg);}
+function renderFilters(){const cats=["Todos",...new Set(CONFIG.products.map(p=>p.category))];filtersEl.innerHTML=cats.map(c=>'<button type="button" class="filter '+(state.category===c?'active':'')+'" data-category="'+esc(c)+'">'+esc(c)+'</button>').join("");filtersEl.querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>{state.category=b.dataset.category;renderFilters();renderProducts();}));}
+function renderProducts(){
+ const q=state.search.trim().toLocaleLowerCase("es-AR"),list=CONFIG.products.filter(p=>(state.category==="Todos"||p.category===state.category)&&(!q||(p.name+" "+p.category).toLocaleLowerCase("es-AR").includes(q)));
+ if(!list.length){productsEl.innerHTML='<div class="empty">No encontramos productos con esa búsqueda.</div>';return;}
+ productsEl.innerHTML=list.map(p=>'<article class="product"><div class="photo"><img src="'+esc(p.image)+'" alt="'+esc(p.name)+'" loading="lazy" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'block\'"><span class="no-image">Imagen pendiente<br><small>'+esc(p.image)+'</small></span></div><div class="product-body"><div class="category">'+esc(p.category)+'</div><h3>'+esc(p.name)+'</h3><p class="description">'+esc(p.description||(p.consult?"Producto por encargo. Consultá disponibilidad.":"Consultá disponibilidad antes de confirmar."))+'</p><div class="product-bottom"><span class="price">'+(p.consult?"Consultar":money(p.price))+'</span><button type="button" class="add" data-id="'+esc(p.id)+'">'+(p.consult?"Consultar":"Agregar +")+'</button></div></div></article>').join("");
+ productsEl.querySelectorAll(".add").forEach(b=>b.addEventListener("click",()=>{const p=CONFIG.products.find(x=>x.id===b.dataset.id);if(p.consult){window.open(waLink("Hola, quiero consultar por: "+p.name),"_blank","noopener");return;}state.cart[p.id]=(state.cart[p.id]||0)+1;renderCart();b.textContent="Agregado ✓";setTimeout(()=>{if(b.isConnected)b.textContent="Agregar +";},900);}));
+}
+function renderCart(){
+ const items=Object.entries(state.cart).map(([id,qty])=>({p:CONFIG.products.find(x=>x.id===id),qty})).filter(x=>x.p);
+ document.getElementById("cart-count").textContent=items.reduce((s,x)=>s+x.qty,0);
+ document.getElementById("cart-items").innerHTML=items.length?items.map(({p,qty})=>'<div class="cart-line"><div><strong>'+esc(p.name)+'</strong><small>'+money(p.price)+' c/u</small></div><div class="qty"><button type="button" data-act="minus" data-id="'+p.id+'" aria-label="Restar uno">−</button><span>'+qty+'</span><button type="button" data-act="plus" data-id="'+p.id+'" aria-label="Sumar uno">+</button></div></div>').join(""):'<p class="description">Tu carrito está vacío. Explorá el catálogo para agregar productos.</p>';
+ document.getElementById("total").textContent=money(items.reduce((s,x)=>s+x.p.price*x.qty,0));
+ document.querySelectorAll(".qty button").forEach(b=>b.addEventListener("click",()=>{const id=b.dataset.id;if(b.dataset.act==="plus")state.cart[id]++;else state.cart[id]--;if(state.cart[id]<=0)delete state.cart[id];renderCart();}));
+}
+function drawer(open){document.getElementById("drawer").classList.toggle("open",open);document.getElementById("overlay").classList.toggle("open",open);document.body.style.overflow=open?"hidden":"";}
+document.getElementById("open-cart").addEventListener("click",()=>drawer(true));document.getElementById("close-cart").addEventListener("click",()=>drawer(false));document.getElementById("overlay").addEventListener("click",()=>drawer(false));document.addEventListener("keydown",e=>{if(e.key==="Escape")drawer(false);});
+document.getElementById("search").addEventListener("input",e=>{state.search=e.target.value;renderProducts();});
+document.getElementById("checkout").addEventListener("click",()=>{const items=Object.entries(state.cart).map(([id,qty])=>({p:CONFIG.products.find(x=>x.id===id),qty})).filter(x=>x.p);if(!items.length){alert("Tu carrito está vacío. Agregá al menos un producto.");return;}const lines=items.map(({p,qty})=>"• "+p.name+" x"+qty+" — "+money(p.price*qty)),total=items.reduce((s,x)=>s+x.p.price*x.qty,0),msg="Hola, Innova Market. Quiero consultar disponibilidad y coordinar este pedido:\\n\\n"+lines.join("\\n")+"\\n\\nTotal estimado: "+money(total)+"\\n\\n¿Me confirman stock, entrega y medios de pago?";window.open(waLink(msg),"_blank","noopener");});
+const contact=waLink("Hola, Innova Market. Quería hacer una consulta.");["footer-wa","float-wa"].forEach(id=>document.getElementById(id).href=contact);document.getElementById("year").textContent=new Date().getFullYear();
+renderFilters();renderProducts();renderCart();
+</script>
+</body>
+</html>
